@@ -40,7 +40,7 @@ class ScratchLocalStorage {
                             "arguments": {
                               "key": {
                                 "type": Scratch.ArgumentType.STRING,
-                                "defaultValue": "true",
+                                "defaultValue": "key",
                               }
                             }
                         },
