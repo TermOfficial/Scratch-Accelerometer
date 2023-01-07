@@ -34,14 +34,14 @@ class ScratchLocalStorage {
                             }
                         },
                         {
-                            "opcode": "existantitem",
-                            "blockType": Scratch.BlockType.BOOLEAN,
-                            "text": "localstorage item [key] exists?",
+                            opcode: 'existantitem',
+                            blockType: Scratch.BlockType.BOOLEAN,
+                            text: 'does localstorage item by key [key] exist?',
                             "arguments": {
-                                "key": {
-                                    "type": "string",
-                                    "defaultValue": "key"
-                                },
+                              "key": {
+                                "type": Scratch.ArgumentType.STRING,
+                                "defaultValue": "true",
+                              }
                             }
                         },
                 ],
