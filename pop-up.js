@@ -4,7 +4,7 @@ class ScratchLocalStorage {
     
     getInfo() {
         return {
-            "id": "Pop-Up",
+            "id": "popup",
             "name": "Pop-Up",
             "blocks": [
                         {
