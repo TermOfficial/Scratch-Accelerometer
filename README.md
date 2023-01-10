@@ -1,2 +1,2 @@
-# ScratchLS
-Allows you to use LocalStorage in scratch using a singular extension. Can be used with any scratch editor that allows for custom extensions.
+# Scratch-PopUp
+Basically does what it says. Allows you to open pop-ups. (and you can wait until it closes too!)
