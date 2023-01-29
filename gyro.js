@@ -1,5 +1,5 @@
+let gyro = new Gyroscope({frequency: 60});
 class ScratchGyro {
-    let gyro = new Gyroscope({frequency: 60});
     constructor() {
     }
     
