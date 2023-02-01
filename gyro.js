@@ -37,18 +37,22 @@ class ScratchGyro {
     }
     
     gyrosupport({}) {
+        let gyro = new Gyroscope({frequency: 60});
         return gyro;
     };
     
     getgyrox({}) {
+        let gyro = new Gyroscope({frequency: 60});
         return gyro.x;
     };
     
     getgyroy({}) {
+        let gyro = new Gyroscope({frequency: 60});
         return gyro.y;
     };
 
     getgyroz({}){
+        let gyro = new Gyroscope({frequency: 60});
         return gyro.z;
     };
 }
