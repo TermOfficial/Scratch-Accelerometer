@@ -1,60 +1,92 @@
-let gyro = new Gyroscope({frequency: 60});
-class ScratchGyro {
-    constructor() {
+class ScratchAccel {
+    constructor(runtime) {
+        this.runtime = runtime;
+        this.accelerometer = null;
     }
     
     getInfo() {
         return {
-            "id": "scratchgyro",
-            "name": "Gyroscope",
+            "id": "scratchaccel",
+            "name": "Accelerometer",
             "blocks": [
-                        {
-                            "opcode": "gyrosupport",
-                            "blockType": "reporter",
-                            "text": "gyro supported?",
-                            "arguments": {}
-                        },
-                        {
-                            "opcode": "getgyrox",
-                            "blockType": "reporter",
-                            "text": "gyro x",
-                            "arguments": {}
-                        },
-                        {
-                            "opcode": "getgyroy",
-                            "blockType": "reporter",
-                            "text": "gyro y",
-                            "arguments": {}
-                        },
-                                        {
-                            "opcode": "getgyroz",
-                            "blockType": "reporter",
-                            "text": "gyro z",
-                            "arguments": {}
-                        },
-                ],
+                {
+                    "opcode": "accelsupport",
+                    "blockType": "reporter",
+                    "text": "accelerometer supported?",
+                    "arguments": {}
+                },
+                {
+                    "opcode": "getaccelx",
+                    "blockType": "reporter",
+                    "text": "acceleration x",
+                    "arguments": {}
+                },
+                {
+                    "opcode": "getaccely",
+                    "blockType": "reporter",
+                    "text": "acceleration y",
+                    "arguments": {}
+                },
+                {
+                    "opcode": "getaccelz",
+                    "blockType": "reporter",
+                    "text": "acceleration z",
+                    "arguments": {}
+                },
+                {
+                    "opcode": "checkSensorAccess",
+                    "blockType": "reporter",
+                    "text": "sensor access available?",
+                    "arguments": {}
+                },
+                {
+                    "opcode": "requestSensorAccess",
+                    "blockType": "command",
+                    "text": "request sensor access",
+                    "arguments": {}
+                }
+            ],
         };
     }
     
-    gyrosupport({}) {
-        let gyro = new Gyroscope({frequency: 60});
-        return gyro;
-    };
+    accelsupport() {
+        return 'Accelerometer' in window;
+    }
     
-    getgyrox({}) {
-        let gyro = new Gyroscope({frequency: 60});
-        return gyro.x;
-    };
+    checkSensorAccess() {
+        return this.accelerometer !== null;
+    }
     
-    getgyroy({}) {
-        let gyro = new Gyroscope({frequency: 60});
-        return gyro.y;
-    };
-
-    getgyroz({}){
-        let gyro = new Gyroscope({frequency: 60});
-        return gyro.z;
-    };
+    requestSensorAccess() {
+        if (!('Accelerometer' in window)) {
+            return; // Accelerometer not supported
+        }
+        
+        if (!this.accelerometer) {
+            this.accelerometer = new Accelerometer({ frequency: 60 });
+        }
+    }
+    
+    getaccelx() {
+        if (!this.accelerometer) {
+            return null;
+        }
+        return this.accelerometer.x;
+    }
+    
+    getaccely() {
+        if (!this.accelerometer) {
+            return null;
+        }
+        return this.accelerometer.y;
+    }
+    
+    getaccelz() {
+        if (!this.accelerometer) {
+            return null;
+        }
+        return this.accelerometer.z;
+    }
 }
 
-Scratch.extensions.register(new ScratchGryo())
+Scratch.extensions.register(new ScratchAccel());
