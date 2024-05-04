@@ -1,2 +1,2 @@
-# Scratch-Gyro
-Allows you to get gyroscope information from the device.
+# Scratch-Accelerometer
+Allows you to get accelerometer information from the device.
